@@ -1,0 +1,12 @@
+Requirements List:
+------------------------
+Simple application
+Command line application only
+Needs to load events from a file
+The events file should be csv format
+Events file format should contain month, day, year, hour, minutes, seconds, event description for every event
+Events file should have a header that labels the events
+Application should print out event information, and it should print how many days are between today (as in right now when you run the program) and the event date and time.
+Application should also print out how many hours are between right now and the event time.
+
+
