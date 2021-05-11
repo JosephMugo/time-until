@@ -1,0 +1,22 @@
+What does this program do?
+ - It says how many hours and days until a certain event.
+
+What data format and data structure?
+ - CSV File
+ - Time
+ - String
+ - Integer
+
+How does this program work?
+ - Entry point: TimeUntil class (main method)
+ - Record starting time and sets it equal to a variable
+ - Create new File Object with CSV file and tries to read the data in it
+ - Goes through each line in CSV file and passes it to Row class which takes
+   all of the different parameters and sets variables in the Row class
+ - Row class prints properties in the console
+ - TimeUntil class gets time until current date for each event
+ - TimeUntil class prints to console time until current date and event description
+
+How is the configuration control working?
+ - develop branch - where we are working on the code
+ - main branch - where the production code is running
