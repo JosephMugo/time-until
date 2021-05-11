@@ -25,13 +25,30 @@ public class TimeUntil { // Oh, here's a class, we've learned about declaring cl
                 System.out.println("\n\n----------------------------------------------------------------------------------\n");
                 Row eventRow = new Row(nextRow);
                 LocalDateTime targetDate = LocalDateTime.of(eventRow.getYear(), eventRow.getMonth(), eventRow.getDay(), eventRow.getHour(), eventRow.getMinute(), eventRow.getSecond());
-                System.out.println("Processing event #" + rowNum + " :" + eventRow.getDescription());
+                System.out.println("Processing event #" + rowNum + " : " + eventRow.getDescription());
 
+                long numYearsBetween = ChronoUnit.YEARS.between(startingDate, targetDate);
+                long numMonthsBetween = ChronoUnit.MONTHS.between(startingDate, targetDate);
                 long numDaysBetween = ChronoUnit.DAYS.between(startingDate, targetDate);
-                System.out.println("Only " + numDaysBetween + " days until event.  Treasure, and make the most, each day!  Because, once again, there's only so much time before that day quickly comes, to be exact one more time, days until event is: " + numDaysBetween);
+                long numHoursBetween = ChronoUnit.HOURS.between(startingDate, targetDate);
+                long numMinutesBetween = ChronoUnit.MINUTES.between(startingDate, targetDate);
+                long numSecondsBetween = ChronoUnit.SECONDS.between(startingDate, targetDate);
 
-                long numHoursUntil = ChronoUnit.HOURS.between(startingDate, targetDate);
-                System.out.println("Just to break it down a little further, you have only this many hours until the event: " + numHoursUntil);
+                if (numYearsBetween >= 1) {
+                    System.out.println("Your event is in "+numYearsBetween+" years and "+(numMonthsBetween-numYearsBetween*12)+" months from now. A long way to go!");
+                } else if (numMonthsBetween >= 1) {
+                    System.out.println("Your event is in "+numMonthsBetween+" months and "+(numDaysBetween-numMonthsBetween*30)+" days from now. Not very much longer!");
+                } else if (numDaysBetween >= 1) {
+                    System.out.println("Your event is in "+numDaysBetween+" days and "+(numHoursBetween-numDaysBetween*24)+" hours from now. It's coming up!");
+                } else if (numHoursBetween >= 1) {
+                    System.out.println("Your event is in "+numHoursBetween+" hours and "+(numMinutesBetween-numHoursBetween*60)+" minutes from now. It's very soon!");
+                } else if (numMinutesBetween >= 1) {
+                    System.out.println("Your event is in "+numMinutesBetween+" minutes and "+(numSecondsBetween-numMinutesBetween*60)+" seconds from now. Get ready!");
+                } else if (numSecondsBetween >= 0) {
+                    System.out.println("Your event is in "+numSecondsBetween+" seconds from now. You better hurry!");
+                } else {
+                    System.out.println("Your event has already passed.");
+                }
             }
         } catch (Exception e) {
             System.out.println("Something went wrong locating or processing events.csv file.  Exception information is: " + e);

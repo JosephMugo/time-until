@@ -4,14 +4,14 @@ import java.util.Scanner;
 public class Row { // class declaration
     // constructor
     public Row(String row) {
-        System.out.println("Row received: " + row); // output method for console
+        //System.out.println("Row received: " + row); // output method for console
         try (Scanner rowReader = new Scanner(row)) { // Scanner - input method for console
             rowReader.useDelimiter(",");
             int index = 0;
             // While loop
             while (rowReader.hasNext()) {
                 String val = rowReader.next();
-                System.out.println("Current value is: " + val);
+                //System.out.println("Current value is: " + val);
                 if (index == 0) setMonth(Integer.parseInt(val));
                 if (index == 1) setDay(Integer.parseInt(val));
                 if (index == 2) setYear(Integer.parseInt(val));
